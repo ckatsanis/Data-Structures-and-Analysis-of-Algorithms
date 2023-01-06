@@ -1,3 +1,5 @@
+package AbstractTypesArrays;
+
 public class Lab implements LabInterface {
 
     private String LabName;
@@ -26,7 +28,7 @@ public class Lab implements LabInterface {
     @Override
     public boolean insert(Student S) {
         if (size >= capacity) {
-            System.out.println("Lab: " + LabName + " is full.");
+            System.out.println("AbstractTypesArrays.Lab: " + LabName + " is full.");
             return false;
         } else {
             LabArray[size++]=S;

@@ -1,3 +1,5 @@
+package AbstractTypesArrays;
+
 public interface LabInterface {
 
     public boolean insert(Student S);

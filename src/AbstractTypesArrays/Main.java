@@ -1,5 +1,4 @@
-import java.sql.Struct;
-import java.util.ArrayList;
+package AbstractTypesArrays;
 
 public class Main {
     public static void main(String[] args) {
