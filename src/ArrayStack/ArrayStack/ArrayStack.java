@@ -19,6 +19,7 @@ public class ArrayStack implements StackInterface {
     }
 
     public int size() {
+
         return (top+1);
     }
 
@@ -27,6 +28,7 @@ public class ArrayStack implements StackInterface {
     }
 
     public boolean isFull() {
+
         return (top == Capacity);
     }
 
