@@ -94,7 +94,7 @@ public class LinkedList implements ListInterface {
         if (isEmpty())
             throw new ListEmptyException("List is Empty");
 
-        for (Node position = first; position != null; position.getNext())
+        for (Node position = first; position != null; position = position.getNext())
             System.out.println(position.getItem());
     }
 

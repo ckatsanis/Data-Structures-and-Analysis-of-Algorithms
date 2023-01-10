@@ -19,7 +19,7 @@ public class List {
             System.out.println("List: ");
             li.printList();
         } catch (ListEmptyException Error) {
-            System.out.println("IS EMPTY " + Error.toString());
+            System.out.println("IS EMPTY ");
         }
     }
 }
