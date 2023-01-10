@@ -22,6 +22,11 @@ public class Student {
         this.nac = nac;
         this.grade = grade;
     }
+    Student (int am, String name, String lname){
+        this.am = am;
+        fname = name;
+        this.lname = lname;
+    }
 
     public int getAM() {
         return am;

@@ -1,5 +1,7 @@
 package List;
+import AbstractTypesArrays.Student;
 
+import javax.management.ObjectName;
 import java.util.List;
 
 public class LinkedList implements ListInterface {
@@ -15,7 +17,7 @@ public class LinkedList implements ListInterface {
         return first == null;
     }
 
-    public Object getFirst() {
+    public Node getFirst() {
         return first;
     }
 
@@ -106,14 +108,96 @@ public class LinkedList implements ListInterface {
         Node position = first.getNext();
 
         while (position != null) {
-            Comparable CoMax = (Comparable) max;
-            Comparable CoItem = (Comparable) position.getItem();
-            if ((CoMax.compareTo(CoItem)<0))
+            if ((((String)max).compareTo(((String)(position.getItem())))<0))
                 max = position.getItem();
 
             position = position.getNext();
         }
 
         return max;
+    }
+
+    public boolean ifExists(Object data) {
+        if (isEmpty())
+            throw new ListEmptyException("List empty");
+
+        Node position = first;
+
+        while (position !=null) {
+            if (position.getItem().equals(data))
+                return true;
+            position = position.getNext();
+        }
+
+        return false;
+    }
+
+    public LinkedList Sort() {
+        Node current, min, trace;
+
+        trace = getFirst();
+
+        while (trace != null) {
+            current = trace;
+            min = trace;
+
+            while (current != null) {
+                if (((String)(current.getItem())).compareTo(((String)(min.getItem())))<0)
+                    min = current;
+                current = current.getNext();
+            }
+            String tmp = (String)trace.getItem();
+            trace.setItem(min.getItem());
+            min.setItem(tmp);
+            trace = trace.getNext();
+        }
+        return this;
+    }
+
+    public LinkedList BubbleSort() {
+        Node current = getFirst();
+
+        while (current != null) {
+            Node second = current.getNext();
+
+            while (second != null) {
+                if (((String)(current.getItem())).compareTo(((String)(second.getItem())))<0) {
+                    String tmp = (String) current.getItem();
+                    current.setItem(second.getItem());
+                    second.setItem(tmp);
+                }
+                second = second.getNext();
+            }
+          current.getNext();
+        }
+        return this;
+    }
+
+    public Object[] MinMaxOfList() {
+        Object[] MinMax = new Student[2];
+
+        if (isEmpty())
+            throw new ListEmptyException("List is Empty");
+
+        Object min = first.getItem();
+        Node position = first.getNext();
+
+        while (position != null) {
+            if (((Student)min).getGrade()>((Student)(position.getItem())).getGrade())
+                min = position.getItem();
+            position = position.getNext();
+        }
+
+        MinMax[0] = min;
+        Object max = first.getItem();
+        position = first.getNext();
+        while (position != null) {
+            if (((Student)min).getGrade()<((Student)(position.getItem())).getGrade())
+                max = position.getItem();
+            position = position.getNext();
+        }
+        MinMax[1] = max;
+
+        return MinMax;
     }
 }
