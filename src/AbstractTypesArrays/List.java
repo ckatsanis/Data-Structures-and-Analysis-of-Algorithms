@@ -39,7 +39,10 @@ public class List {
             System.out.println("List Sorted: ");
             li.Sort();
             li.printList();
-            System.out.println("MinMax: " + L2.MinMaxOfList());
+
+            Object minmax[] = L2.MinMaxOfList();
+
+            System.out.println("Min: " + minmax[0] + "\nMax: " + minmax[1]);
         } catch (ListEmptyException Error) {
             System.out.println("IS EMPTY ");
         }
