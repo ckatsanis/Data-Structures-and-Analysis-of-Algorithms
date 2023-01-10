@@ -5,5 +5,6 @@ public class Main {
         Standard.get();
         ArrayStacks.get();
         QueueStack.get();
+        List.get();
     }
 }
