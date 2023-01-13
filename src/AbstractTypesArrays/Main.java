@@ -6,5 +6,6 @@ public class Main {
         ArrayStacks.get();
         QueueStack.get();
         List.get();
+        Tree.get();
     }
 }
