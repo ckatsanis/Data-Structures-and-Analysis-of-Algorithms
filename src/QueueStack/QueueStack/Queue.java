@@ -19,17 +19,17 @@ public class Queue implements QueueStackInterface {
 
     @Override
     public int size() {
-        return (last-first);
+        return (Capacity+last-first)%Capacity;
     }
 
     @Override
     public boolean isEmpty() {
-        return (first == last);
+        return (size()==0);
     }
 
     @Override
     public boolean isFull() {
-        return (last == Capacity);
+        return (size()==Capacity-1);
     }
 
     @Override
@@ -41,13 +41,11 @@ public class Queue implements QueueStackInterface {
 
     @Override
     public void enqueue(Object item) throws QueueStackFullException {
-        if (size() == Capacity)
+        if (isFull())
             throw new QueueStackEmptyException("Queue Overflow");
 
-        if (last == Capacity)
-            getHelp();
-
         S[last++] = item;
+        last = (last+1)%Capacity;
     }
 
     @Override
@@ -59,15 +57,9 @@ public class Queue implements QueueStackInterface {
 
         item = S[first];
         S[first++] = null;
+        first= (first+1)%Capacity;
 
         return item;
     }
 
-    public void getHelp() {
-        for (int i = 0; i < size(); i++) {
-            S[i] = S[first+i];
-        }
-        last= size();
-        first= 0;
-    }
 }
