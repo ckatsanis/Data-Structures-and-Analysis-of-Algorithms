@@ -19,7 +19,7 @@ public class Queue implements QueueStackInterface {
 
     @Override
     public int size() {
-        return (Capacity+last-first)%Capacity;
+        return (last-first);
     }
 
     @Override
@@ -43,6 +43,12 @@ public class Queue implements QueueStackInterface {
     public void enqueue(Object item) throws QueueStackFullException {
         if (isFull())
             throw new QueueStackEmptyException("Queue Overflow");
+
+        if (isEmpty()) {
+            first = 0;
+            last = 0;
+        } else
+            last = (last+1)%Capacity;
 
         S[last++] = item;
         last = (last+1)%Capacity;
