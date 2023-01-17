@@ -26,7 +26,7 @@ public class List {
         L2.insertLast(s4);
 
         try {
-            System.out.println("List size: " + li.size());
+            /*System.out.println("List size: " + li.size());
             System.out.println("List max: " + li.maxOfList());
             System.out.println("List: ");
             li.printList();
@@ -42,7 +42,13 @@ public class List {
 
             Object minmax[] = L2.MinMaxOfList();
 
-            System.out.println("Min: " + minmax[0] + "\nMax: " + minmax[1]);
+            System.out.println("Min: " + minmax[0] + "\nMax: " + minmax[1]);*/
+
+            li.printList();
+            System.out.println();
+            li.removePreLast();
+            System.out.println();
+            li.printList();
         } catch (ListEmptyException Error) {
             System.out.println("IS EMPTY ");
         }
