@@ -64,7 +64,7 @@ public class Heap implements HeapInterface {
         if ((index > 2) && ((Comparable)btree[2]).compareTo((Comparable)btree[3]) > 0)
             son = 2; else son =3;
 
-        while (son <= index && ((Comparable)btree[son]).compareTo((Configuration)lastitem) > 0 ) {
+        while (son <= index && ((Comparable)btree[son]).compareTo((Comparable)lastitem) > 0 ) {
             btree[father] = btree[son];
             father = son;
             son = father * 2;

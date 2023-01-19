@@ -19,6 +19,7 @@ public class BsTree {
         else
             insertNode(data, root);
     }
+
     public void inOrderTraversal( ) {
         System.out.println("INORDER TRAVERSAL");
         inOrder(root);
@@ -49,6 +50,7 @@ public class BsTree {
                 insertNode(data, node.getRightNode());
         }
     }
+
     private void inOrder(TreeNode node) {
         if (node == null)
             return;

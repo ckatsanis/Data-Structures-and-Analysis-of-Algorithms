@@ -27,6 +27,9 @@ public class Tree {
         tree2.postOrderTraversal( );
         System.out.println(tree2.size());
         System.out.println(tree2.treeHeight());
+
+        //tree2.removeElement(25);
+        //tree2.inOrderTraversal();
     }
 
 }
