@@ -93,9 +93,12 @@ public class LinkedList implements ListInterface {
         return removeItem;
     }
 
-    public Object removePreLast() throws ListEmptyException {
+    public Object removePreLast() throws ListEmptyException, NoElementException {
         if (isEmpty())
             throw new ListEmptyException("List is Empty!");
+
+        if (first.getNext() == last)
+            throw new NoElementException("Element not found!");
 
         Object removeItem, temp;
 
