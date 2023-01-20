@@ -4,31 +4,31 @@ public class QueueStackCycle implements QueueStackInterface{
     private static final int CAPACITY = 100;
     private int Capacity;
     private Object S[];
-    private int first = -1;
-    private int last = -1;
+    private int first = 0;
+    private int last = 0;
 
     public QueueStackCycle() {
         this(CAPACITY);
     }
 
     public QueueStackCycle(int cap) {
-        Capacity = cap;
+        Capacity = cap + 1;
         S = new Object[Capacity];
     }
 
     @Override
     public int size() {
-        return (last-first);
+        return (Capacity+last-first)%Capacity;
     }
 
     @Override
     public boolean isEmpty() {
-        return (last==-1);
+        return (size() == 0);
     }
 
     @Override
     public boolean isFull() {
-        return first==(last+1)%Capacity;
+        return size()==(Capacity-1);
     }
 
     @Override
@@ -43,13 +43,8 @@ public class QueueStackCycle implements QueueStackInterface{
         if (isFull())
             throw new QueueStackEmptyException("Queue Overflow");
 
-        if (isFull()) {
-            first = 0;
-            last = 0;
-        } else
-            last = (last+1)%Capacity;
-
-        S[last++] = item;
+        S[last] = item;
+        last = (last+1)%Capacity;
     }
 
     @Override
@@ -59,14 +54,9 @@ public class QueueStackCycle implements QueueStackInterface{
         if ( isEmpty())
             throw new QueueStackEmptyException("Queue is Empty");
 
-        if (first == last) {
-            first = -1;
-            last = -1;
-        } else
-            first = (first+1)%Capacity;
-
         item = S[first];
-        S[first++] = null;
+        S[first] = null;
+        first = (first+1)%Capacity;
 
         return item;
     }

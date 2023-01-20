@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         //Standard.get();
         //ArrayStacks.get();
-        //QueueStack.get();
+        QueueStack.get();
         //List.get();
-        Tree.get();
+        //Tree.get();
     }
 }

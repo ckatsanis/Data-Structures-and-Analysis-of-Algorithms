@@ -5,7 +5,7 @@ import QueueStack.QueueStack.*;
 public class QueueStack {
     public static void get() {
         System.out.println("\nQueue List");
-        QueueStackInterface q = new QueueStackCycle(10);
+        QueueStackCycle q = new QueueStackCycle(10);
 
         q.enqueue(new Student(1,"Christos", "Tade", 25, 'm', 0, 10));
         q.enqueue(new Student(2,"Nikos", "Tade", 28, 'm', 2, 5));
@@ -48,7 +48,10 @@ public class QueueStack {
         System.out.println("Size of Queue " + q.size());
         q.enqueue(new Student(1, "Christos", "tade",25, 'm', 10, 0));
         System.out.println("Size of Queue " + q.size());
-        for (int i=0; i < q.size(); i++) {
+
+        int size = q.size();
+
+        for (int i=0; i < size; i++) {
             Student s = (Student)q.dequeue();
             System.out.println(s);
             System.out.println("Size of Queue " + q.size());
